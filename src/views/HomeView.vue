@@ -9,12 +9,14 @@ import ReviewList from '../components/ReviewList.vue'
   <section>
     <Header />
 
-    <main class="w-full mt-16 px-[15vw] flex flex-col gap-4">
-      <ReviewsForm />
+    <main class="w-full mt-16 px-[15vw]">
+      <div class="flex flex-col max-w-5xl gap-8">
+        <ReviewsForm />
 
-      <ReviewStats />
+        <ReviewStats />
 
-      <ReviewList />
+        <ReviewList />
+      </div>
     </main>
   </section>
 </template>
@@ -22,7 +24,7 @@ import ReviewList from '../components/ReviewList.vue'
 <style scoped>
 section {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }

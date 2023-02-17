@@ -1,12 +1,14 @@
 <script setup>
 import Card from './Shared/Card.vue';
 
+const props = defineProps(['review'])
+
 </script>
 
 <template>
-    <Card>
+    <Card class="justify-start" style="flex-direction: row;">
         <div class="rounded-full rating-display">
-            9
+            {{ review.rating }}
         </div>
 
         <div class="absolute flex flex-row items-center justify-center gap-4 top-2 right-2">
@@ -20,6 +22,13 @@ import Card from './Shared/Card.vue';
                     close
                 </span>
             </button>
+        </div>
+
+
+        <div>
+            <p class="p-8 text-justify">
+                {{ review.text }}
+            </p>
         </div>
     </Card>
 </template>
@@ -37,7 +46,7 @@ import Card from './Shared/Card.vue';
     align-items: center;
     width: 4vw;
     height: 4vw;
-    font-size: 1vw;
+    font-size: 1.2vw;
     background: #4ecca3;
     color: white;
     cursor: pointer;

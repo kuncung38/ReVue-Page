@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="flex flex-col items-center gap-16 bg-white text-[#212121] rounded-md relative p-8 px-10"
+    <div class="flex flex-col items-center gap-16 bg-white text-[#212121] rounded-2xl relative p-8 px-10"
         :class="{ chosen: chosen }">
         <slot />
     </div>

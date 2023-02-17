@@ -1,5 +1,7 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue';
+import { useReviewStore } from '../stores/review'
+
+import { onMounted, ref } from 'vue';
 import Card from './Shared/Card.vue';
 import RatingSelect from './RatingSelect.vue'
 
@@ -8,6 +10,8 @@ const btnDisabled = ref(false)
 const message = ref('')
 const rating = ref(0)
 const belowTen = ref(false)
+
+const store = useReviewStore()
 
 const rate = (n) => {
     rating.value = n
@@ -31,8 +35,11 @@ const handleSubmit = () => {
         warningText.classList.add('warning')
         return runTimer()
     }
-    console.log(rating.value);
-    console.log(text.value);
+    const newReview = {
+        text: text.value,
+        rating: rating.value
+    }
+    store.addReview(newReview)
 }
 
 onMounted(() => {
