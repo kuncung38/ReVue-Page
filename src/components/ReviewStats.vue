@@ -1,11 +1,17 @@
 <script setup>
+import { useReviewStore } from '../stores/review';
+const store = useReviewStore()
+
+console.log(store.reviews.reduce((current, next) => {
+    return current + next.rating
+}, 0));
 
 </script>
 
 <template>
     <div class="flex items-center justify-between text-lg font-semibold text-semibold">
-        <h4>Reviews</h4>
-        <h4>Average Rating: 9.4</h4>
+        <h4>{{ `${store.reviews.length} Reviews` }}</h4>
+        <h4>{{ `Average Rating: ${store.averageRating}` }}</h4>
     </div>
 </template>
 

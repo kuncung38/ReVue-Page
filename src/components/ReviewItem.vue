@@ -6,7 +6,7 @@ const props = defineProps(['review'])
 </script>
 
 <template>
-    <Card class="justify-start" style="flex-direction: row;">
+    <Card class="justify-start" style="flex-direction: row;" :id="`review-${review.id}`">
         <div class="rounded-full rating-display">
             {{ review.rating }}
         </div>
