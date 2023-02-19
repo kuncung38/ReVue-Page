@@ -10,7 +10,7 @@ console.log(store.reviews.reduce((current, next) => {
 
 <template>
     <div class="flex items-center justify-between text-lg font-semibold text-semibold">
-        <h4>{{ `${store.reviews.length} Reviews` }}</h4>
+        <h4>{{ `${store.reviewsNumber} Reviews` }}</h4>
         <h4>{{ `Average Rating: ${store.averageRating}` }}</h4>
     </div>
 </template>

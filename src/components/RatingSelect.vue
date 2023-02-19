@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps(['n'])
+const props = defineProps(['n', 'rating'])
 const emit = defineEmits(['rate'])
 
 
@@ -7,7 +7,8 @@ const emit = defineEmits(['rate'])
 
 <template>
     <li class="relative">
-        <input type="radio" name="rating" value="n" @click="$emit('rate', n)" :id="`rating-${n}`" class="opacity-0" />
+        <input type="radio" name="rating" value="n" :checked="rating === n" @click="$emit('rate', n)" :id="`rating-${n}`"
+            class="opacity-0" />
         <label :for="`rating-${n}`"
             class="flex items-center justify-center rounded-full hover:bg-[#94e9cc] hover:text-white hover:border-none">{{ n
             }}</label>

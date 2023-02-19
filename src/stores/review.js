@@ -10,6 +10,10 @@ export const useReviewStore = defineStore("review", () => {
         },
     ]);
 
+    const reviewsNumber = computed(() => {
+        return reviews.value.length;
+    });
+
     const averageRating = computed(() => {
         let avg =
             reviews.value.reduce((current, next) => current + next.rating, 0) /
@@ -28,5 +32,5 @@ export const useReviewStore = defineStore("review", () => {
         reviews.value.push(newReview);
     }
 
-    return { reviews, averageRating, editedData, addReview };
+    return { reviews, reviewsNumber, averageRating, editedData, addReview };
 });
