@@ -3,7 +3,7 @@ import { useReviewStore } from '../stores/review'
 
 import { onMounted, ref } from 'vue';
 import Card from './Shared/Card.vue';
-import RatingSelect from './RatingSelect.vue'
+import RatingSelect from './Shared/RatingSelect.vue'
 
 const text = ref('')
 const btnDisabled = ref(false)

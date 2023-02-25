@@ -1,5 +1,5 @@
 <script setup>
-import { watch, onUpdated } from 'vue';
+import { onUpdated } from 'vue';
 import ReviewItem from './ReviewItem.vue';
 import { useReviewStore } from '../stores/review';
 
