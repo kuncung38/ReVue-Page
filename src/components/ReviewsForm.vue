@@ -14,7 +14,6 @@ const store = useReviewStore()
 
 const rate = (n) => {
     rating.value = n
-
 }
 
 let warningText
@@ -60,7 +59,7 @@ onMounted(() => {
     <Card>
         <h2 class="text-2xl font-bold">How would you rate your service with us?</h2>
         <ul class="flex items-center justify-around w-full">
-            <RatingSelect v-for="n in 10" :key="n" :n="n" @rate="rate" :rating="rating" />
+            <RatingSelect v-for="n in 10" :key="n" :n="n" @rate="rate" :rating="rating" :name="'rating'" />
         </ul>
         <form @submit.prevent="handleSubmit" class="flex gap-2 w-full border border-[#ccc] p-2 rounded-md items-center">
             <input type="text" v-model.lazy="text" placeholder="Write a review"

@@ -2,10 +2,6 @@
 import { useReviewStore } from '../stores/review';
 const store = useReviewStore()
 
-console.log(store.reviews.reduce((current, next) => {
-    return current + next.rating
-}, 0));
-
 </script>
 
 <template>

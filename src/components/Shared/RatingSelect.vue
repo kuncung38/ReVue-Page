@@ -1,21 +1,21 @@
 <script setup>
-import { onUpdated } from 'vue';
 
 const props = defineProps({
     n: { type: Number },
     rating: { type: Number },
     functional: { type: String },
     isEditing: { default: true },
-    name: { type: String }
+    name: { type: String },
 })
-// const props = defineProps(['n', 'rating'])
+
 const emit = defineEmits(['rate'])
 
-const position = `${(props.n + 1) * 5}vw`
+const rateThis = () => {
+    emit('rate', props.n)
+    // console.log('test');
+}
 
-onUpdated(() => {
-    console.log(props.functional, props.isEditing);
-})
+const position = `${(props.n + 1) * 5}vw`
 
 </script>
 
@@ -24,12 +24,12 @@ onUpdated(() => {
         'to-edit': functional === 'edit',
         'rating-editing': (functional === 'edit' && isEditing)
     }" :style="{ zIndex: n === rating ? '11' : n, pointerEvents: isEditing ? 'auto' : 'none' }">
-        <input type="radio" :name="functional === 'edit' ? name : 'rating'" value="n" :checked="rating === n"
-            @click="$emit('rate', n)" :id="functional === 'edit' ? `${name}-${n}` : `rating-${n}`" class="opacity-0" />
+        <input type="radio" :name="name" value="n" :checked="rating === n" @click="rateThis"
+            :id="functional === 'edit' ? `${name}-${n}` : `rating-${n}`" class="opacity-0" />
         <label :for="functional === 'edit' ? `${name}-${n}` : `rating-${n}`"
             class="flex items-center justify-center rounded-full bg-white hover:bg-[#94e9cc] hover:text-white hover:border-none">{{
-                n
-            }}</label>
+                n }}
+        </label>
     </li>
 </template>
 

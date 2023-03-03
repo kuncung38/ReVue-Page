@@ -12,13 +12,13 @@ onUpdated(() => {
 </script>
 
 <template>
-    <div class="flex flex-col gap-8 mb-4">
+    <div class="flex flex-col gap-8 mb-4 transition-all">
         <p v-if="!store.reviews.length">No Reviews yet</p>
 
-        <ReviewItem v-for="(review, index) in store.reviews" :key="index" :review="review" />
+        <TransitionGroup>
+            <ReviewItem v-for="(review, index) in store.reviews" :key="index" :review="review" />
+        </TransitionGroup>
     </div>
 </template>
-
-
 
 <style lang="scss" scoped></style>

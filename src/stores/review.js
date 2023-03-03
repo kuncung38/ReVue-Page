@@ -21,16 +21,28 @@ export const useReviewStore = defineStore("review", () => {
         return avg.toFixed(2);
     });
 
-    const editedData = ref({
-        editable: false,
-        item: null,
-    });
-
     function addReview(review) {
         const id = reviews.value[reviews.value.length - 1].id + 1;
         let newReview = { id, ...review };
         reviews.value.push(newReview);
     }
 
-    return { reviews, reviewsNumber, averageRating, editedData, addReview };
+    function editReview(id, newRating, newText) {
+        const index = reviews.value.findIndex((el) => el.id === id);
+        reviews.value[index] = { id, rating: newRating, text: newText };
+    }
+
+    function deleteReview(id) {
+        const index = reviews.value.findIndex((el) => el.id === id);
+        reviews.value.splice(index, 1);
+    }
+
+    return {
+        reviews,
+        reviewsNumber,
+        averageRating,
+        editReview,
+        addReview,
+        deleteReview,
+    };
 });
